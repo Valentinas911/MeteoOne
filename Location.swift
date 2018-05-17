@@ -32,3 +32,27 @@ class Location {
     }
     
 }
+
+class LocationCity {
+    static var sharedInstance = LocationCity()
+    private init() {}
+    
+    var _city: String! = ""
+//    var _cityNew: String! = ""
+    
+    var city: String {
+        get {
+            return _city
+        } set {
+            _city = newValue
+        }
+    }
+    
+//    var cityNew:String {
+//        get {
+//            return _cityNew
+//        } set {
+//            _cityNew = newValue
+//        }
+//    }
+}

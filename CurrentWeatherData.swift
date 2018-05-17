@@ -9,11 +9,14 @@
 import UIKit
 import Alamofire
 
+
+
 class CurrentWeatherData {
     private var _cityName: String!
     private var _date: String!
     private var _weather: String!
     private var _currentTemp: Double!
+    private var _currentWeatherMethodSelector: Int = 0
     
     var cityName: String {
         if _cityName == nil {
@@ -52,11 +55,33 @@ class CurrentWeatherData {
         return _currentTemp
     }
     
+    var currentWeatherMethodSelector: Int {
+        get {
+            return _currentWeatherMethodSelector
+        } set {
+            _currentWeatherMethodSelector = newValue
+        }
+    }
+    
     func downloadWeatherData(completed: @escaping DownloadComplete) {
         //Alamofire download
-        //let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)
-        Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in
+        var currentWeatherMethod: URL!
+        
+        if currentWeatherMethodSelector == 0 {
+            currentWeatherMethod = URL(string: "\(CURRENT_BASE_URL)\(LATITUDE)\(LAT!)\(LONGITUDE)\(LON!)\(APP_ID_KEY)")
+        } else if currentWeatherMethodSelector == 1 {
+            currentWeatherMethod = URL(string: "\(CURRENT_BASE_URL)\(CITY_IDENT))\(LocationCity.sharedInstance.city)\(APP_ID_KEY)")
+        }
+    
+        print("List of Data passed into downloadWeatherData() function")
+        print("Current Weather Method Selector \(currentWeatherMethodSelector)")
+        print("Current Weather Method \(currentWeatherMethod)")
+        print("city - \(LocationCity.sharedInstance.city)")
+        
+        Alamofire.request(currentWeatherMethod).responseJSON { response in
             let result = response.result
+            print("Current Weather Method within Alamofire request - \(currentWeatherMethod)")
+            
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
                 if let name = dict["name"] as? String {
@@ -74,13 +99,16 @@ class CurrentWeatherData {
                 if let main = dict["main"] as? Dictionary<String,AnyObject> {
                     if let currentTemp = main ["temp"] as? Double {
                         let kelvinToCelsius = currentTemp - 273.15
-                        self._currentTemp = kelvinToCelsius.rounded(.toNearestOrAwayFromZero)
+                        self._currentTemp = 
+                            kelvinToCelsius.rounded(.toNearestOrAwayFromZero)
 
                     }
                 }
                 
             }
             completed() //This has to be within Alamofire.request body
+            print("Current Weather Data Downloaded")
+            
         }
     }
 }

@@ -25,8 +25,8 @@ class TableCell: UITableViewCell {
 
         cellWeekday.text = forecast.date
         cellWeather.text = forecast.weather
-        cellHighTemp.text = ("High Temp.: \(forecast.highTemp)")
-        cellLowTemp.text = ("Low Temp.: \(forecast.lowTemp)")
+        cellHighTemp.text = ("High Temp.: \(forecast.highTemp)°")
+        cellLowTemp.text = ("Low Temp.: \(forecast.lowTemp)°")
         cellImage.image = UIImage(named: "\(forecast.weather) Mini")
     }
 }
