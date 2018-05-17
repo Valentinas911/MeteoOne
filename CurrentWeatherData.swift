@@ -9,8 +9,6 @@
 import UIKit
 import Alamofire
 
-
-
 class CurrentWeatherData {
     private var _cityName: String!
     private var _date: String!
@@ -70,13 +68,13 @@ class CurrentWeatherData {
         if currentWeatherMethodSelector == 0 {
             currentWeatherMethod = URL(string: "\(CURRENT_BASE_URL)\(LATITUDE)\(LAT!)\(LONGITUDE)\(LON!)\(APP_ID_KEY)")
         } else if currentWeatherMethodSelector == 1 {
-            currentWeatherMethod = URL(string: "\(CURRENT_BASE_URL)\(CITY_IDENT))\(LocationCity.sharedInstance.city)\(APP_ID_KEY)")
+            currentWeatherMethod = URL(string: "\(CURRENT_BASE_URL)\(CITY_IDENT))\(LocationCity.instance.city)\(APP_ID_KEY)")
         }
     
         print("List of Data passed into downloadWeatherData() function")
         print("Current Weather Method Selector \(currentWeatherMethodSelector)")
         print("Current Weather Method \(currentWeatherMethod)")
-        print("city - \(LocationCity.sharedInstance.city)")
+        print("city - \(LocationCity.instance.city)")
         
         Alamofire.request(currentWeatherMethod).responseJSON { response in
             let result = response.result
@@ -106,7 +104,7 @@ class CurrentWeatherData {
                 }
                 
             }
-            completed() //This has to be within Alamofire.request body
+            completed()
             print("Current Weather Data Downloaded")
             
         }

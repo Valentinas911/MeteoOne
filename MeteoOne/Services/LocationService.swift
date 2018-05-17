@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  LocationService.swift
 //  MeteoOne
 //
 //  Created by Valentinas Mirosnicenko on 12/30/16.
@@ -8,8 +8,9 @@
 
 import CoreLocation
 
-class Location {
-    static var sharedInstance = Location()
+class LocationService {
+    
+    static var instance = LocationService()
     private init() {}
     
     var _latitude: Double!
@@ -34,11 +35,12 @@ class Location {
 }
 
 class LocationCity {
-    static var sharedInstance = LocationCity()
+    
+    static var instance = LocationCity()
+    
     private init() {}
     
     var _city: String! = ""
-//    var _cityNew: String! = ""
     
     var city: String {
         get {
@@ -48,11 +50,4 @@ class LocationCity {
         }
     }
     
-//    var cityNew:String {
-//        get {
-//            return _cityNew
-//        } set {
-//            _cityNew = newValue
-//        }
-//    }
 }

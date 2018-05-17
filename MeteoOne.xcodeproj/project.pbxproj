@@ -11,7 +11,8 @@
 		523231681E14EE69000939EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523231671E14EE69000939EC /* Constants.swift */; };
 		5232316A1E14F070000939EC /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523231691E14F070000939EC /* CurrentWeatherData.swift */; };
 		5232316C1E162393000939EC /* ForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232316B1E162393000939EC /* ForecastData.swift */; };
-		5295802D1E16451E00EC9A6D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295802C1E16451E00EC9A6D /* Location.swift */; };
+		5270182420AD15060011B915 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270182320AD15060011B915 /* Extensions.swift */; };
+		5295802D1E16451E00EC9A6D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295802C1E16451E00EC9A6D /* LocationService.swift */; };
 		52AB05321E13C6450038D43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB05311E13C6450038D43D /* AppDelegate.swift */; };
 		52AB05341E13C6450038D43D /* MeteoOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB05331E13C6450038D43D /* MeteoOneVC.swift */; };
 		52AB05371E13C6450038D43D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52AB05351E13C6450038D43D /* Main.storyboard */; };
@@ -44,7 +45,8 @@
 		523231671E14EE69000939EC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		523231691E14F070000939EC /* CurrentWeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
 		5232316B1E162393000939EC /* ForecastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastData.swift; sourceTree = "<group>"; };
-		5295802C1E16451E00EC9A6D /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5270182320AD15060011B915 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5295802C1E16451E00EC9A6D /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		52AB052E1E13C6450038D43D /* MeteoOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AB05311E13C6450038D43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52AB05331E13C6450038D43D /* MeteoOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeteoOneVC.swift; path = MeteoOne/MeteoOneVC.swift; sourceTree = "<group>"; };
@@ -118,13 +120,35 @@
 		523231621E14CB96000939EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				523231671E14EE69000939EC /* Constants.swift */,
 				523231691E14F070000939EC /* CurrentWeatherData.swift */,
 				5232316B1E162393000939EC /* ForecastData.swift */,
-				5295802C1E16451E00EC9A6D /* Location.swift */,
 			);
 			name = Model;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		5270182020AD14C70011B915 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5295802C1E16451E00EC9A6D /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5270182120AD14D60011B915 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				523231671E14EE69000939EC /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5270182220AD14F60011B915 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5270182320AD15060011B915 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		52AB05251E13C6440038D43D = {
@@ -152,6 +176,9 @@
 		52AB05301E13C6450038D43D /* MeteoOne */ = {
 			isa = PBXGroup;
 			children = (
+				5270182220AD14F60011B915 /* Extensions */,
+				5270182120AD14D60011B915 /* Utilities */,
+				5270182020AD14C70011B915 /* Services */,
 				523231621E14CB96000939EC /* Model */,
 				523231601E14CB83000939EC /* View */,
 				523231611E14CB8E000939EC /* Controller */,
@@ -374,7 +401,8 @@
 			files = (
 				523231681E14EE69000939EC /* Constants.swift in Sources */,
 				5232316C1E162393000939EC /* ForecastData.swift in Sources */,
-				5295802D1E16451E00EC9A6D /* Location.swift in Sources */,
+				5295802D1E16451E00EC9A6D /* LocationService.swift in Sources */,
+				5270182420AD15060011B915 /* Extensions.swift in Sources */,
 				5232316A1E14F070000939EC /* CurrentWeatherData.swift in Sources */,
 				523231641E14D26A000939EC /* TableCell.swift in Sources */,
 				52AB05341E13C6450038D43D /* MeteoOneVC.swift in Sources */,

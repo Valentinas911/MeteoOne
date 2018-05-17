@@ -10,17 +10,12 @@ import UIKit
 
 class TableCell: UITableViewCell {
     
-    @IBOutlet weak var cellImage: UIImageView!
-    @IBOutlet weak var cellWeekday: UILabel!
-    @IBOutlet weak var cellWeather: UILabel!
-    @IBOutlet weak var cellHighTemp: UILabel!
-    @IBOutlet weak var cellLowTemp: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+    @IBOutlet private weak var cellImage: UIImageView!
+    @IBOutlet private weak var cellWeekday: UILabel!
+    @IBOutlet private weak var cellWeather: UILabel!
+    @IBOutlet private weak var cellHighTemp: UILabel!
+    @IBOutlet private weak var cellLowTemp: UILabel!
+        
     func updateTableCell(forecast: ForecastData) {
 
         cellWeekday.text = forecast.date
